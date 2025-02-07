@@ -1,23 +1,29 @@
 import { Tabs } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
-const layout = () => {
+export default function layoutTabs() {
   return (
     <Tabs screenOptions={{ headerShown: true }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "Inicio",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" color={color} size={size} />
+            <AntDesign name="home" size={24} color="black" />
           ),
         }}
       />
-      <Tabs.Screen name="agents" options={{ title: "Agentes" }} />
+      <Tabs.Screen
+        name="agents"
+        options={{
+          title: "Agentes",
+          tabBarIcon: ({ color, size }) => (
+            <AntDesign name="user" size={24} color="black" />
+          ),
+        }}
+      />
       <StatusBar style="auto" />
     </Tabs>
   );
-};
-
-export default layout;
+}

@@ -1,15 +1,19 @@
-import { Link, useLocalSearchParams } from "expo-router";
-import { Text, View } from "react-native";
+import { useRouter } from "expo-router";
+import { Pressable, Text, View } from "react-native";
 
-const index = () => {
-  const { slug } = useLocalSearchParams();
+const Index = () => {
+  const router = useRouter();
+  const goHome = () => {
+    router.push("/");
+  };
   return (
     <View>
       <Text>Pagina settings</Text>
-      <Text>Slug: {slug}</Text>
-      <Link href={"about"}>Go to about</Link>
+      <Pressable onPress={goHome}>
+        <Text>Go Home</Text>
+      </Pressable>
     </View>
   );
 };
 
-export default index;
+export default Index;

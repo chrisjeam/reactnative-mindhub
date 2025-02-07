@@ -1,22 +1,10 @@
 import { useEffect, useState } from "react";
-import { View, Text, Dimensions, Image } from "react-native";
-import Carousel from "react-native-reanimated-carousel";
+import { View } from "react-native";
 import { getAgents } from "../../../services/getAgents";
+import { CarouselCard } from "../../../components/CarouselCard";
 
-export default () => {
+export default function Index() {
   const [agents, setAgents] = useState([]);
-  const width = Dimensions.get("window").width;
-
-  const Card = ({ item }) => (
-    <View>
-      <Text>{item.displayName}</Text>
-      <Image
-        source={{ uri: item.displayIconSmall }}
-        style={{ width: 400, height: 400 }}
-        resizeMode="contain"
-      />
-    </View>
-  );
 
   useEffect(() => {
     getAgents().then(({ data }) => {
@@ -26,15 +14,19 @@ export default () => {
 
   return (
     <View>
-      <Carousel
-        loop
-        autoPlay
-        width={width}
-        height={width}
-        data={[...agents]}
-        renderItem={({ item }) => <Card item={item} />}
-        scrollAnimationDuration={1000}
-      />
+      <CarouselCard data={agents} />
+      {/* <TouchableHighlight
+        onPress={() => {}}
+        style={{
+          width: 100,
+          height: 20,
+          backgroundColor: "red",
+          borderRadius: 10,
+          justifyContent: "center",
+        }}>
+        <Text style={{ color: "black" }}>Ver mas</Text>
+      </TouchableHighlight>
+      <Button>Boton nativo</Button> */}
     </View>
   );
-};
+}

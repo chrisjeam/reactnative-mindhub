@@ -34,6 +34,7 @@ export const AgentCard = ({ agent }) => {
           <Text style={{ marginTop: 12, marginBottom: 12, color: "white" }}>
             {agent.description}
           </Text>
+          <Text style={{ color: "white" }}>{agent.role?.displayName}</Text>
         </View>
       </Pressable>
     </Link>

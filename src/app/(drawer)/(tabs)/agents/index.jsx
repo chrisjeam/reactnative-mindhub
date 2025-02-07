@@ -1,8 +1,8 @@
-import { View } from "react-native";
 import { useEffect, useState } from "react";
 import { getAgents } from "../../../../services/getAgents";
 import { ScrollView } from "react-native-gesture-handler";
 import { AgentCard } from "../../../../components/AgentCard";
+import ScreenView from "../../../../components/ScreenView";
 
 export default function Agents() {
   const [agents, setAgents] = useState([]);
@@ -14,7 +14,7 @@ export default function Agents() {
   }, []);
 
   return (
-    <View style={{ padding: 10 }}>
+    <ScreenView>
       {/* {agents.length === 0 ? (
         <ActivityIndicator />
       ) : (
@@ -30,6 +30,6 @@ export default function Agents() {
           <AgentCard key={agent.uuid} agent={agent} />
         ))}
       </ScrollView>
-    </View>
+    </ScreenView>
   );
 }

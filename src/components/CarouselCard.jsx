@@ -1,15 +1,12 @@
 import { Image } from "react-native";
-import { Dimensions, Text, View } from "react-native";
-import Carousel from "react-native-reanimated-carousel";
+import { Text, View } from "react-native";
 
-export const CarouselCard = ({ data }) => {
-  const width = Dimensions.get("window").width;
-
-  const Card = ({ item }) => (
-    <View>
+export const CarouselCard = ({ item, ...props }) => {
+  return (
+    <View style={{ alignContent: "center", alignItems: "center" }} {...props}>
       <Image
         source={{ uri: item.displayIconSmall }}
-        style={{ width: 400, height: 400 }}
+        style={{ width: 200, height: 200 }}
         resizeMode="contain"
       />
       <View
@@ -31,16 +28,5 @@ export const CarouselCard = ({ data }) => {
         </Text>
       </View>
     </View>
-  );
-  return (
-    <Carousel
-      loop
-      autoPlay
-      width={width}
-      height={width + 40}
-      data={data}
-      renderItem={({ item }) => <Card item={item} />}
-      scrollAnimationDuration={1000}
-    />
   );
 };

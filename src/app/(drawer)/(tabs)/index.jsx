@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
+import { StyleSheet, Text, View, Dimensions, Image } from "react-native";
+import { Link } from "expo-router";
+import Carousel from "react-native-reanimated-carousel";
+import { Pressable, ScrollView } from "react-native-gesture-handler";
 import { getAgents } from "../../../services/getAgents";
 import { CarouselCard } from "../../../components/CarouselCard";
-import { Pressable, ScrollView } from "react-native-gesture-handler";
-import { StyleSheet, Text, View } from "react-native";
-import Carousel from "react-native-reanimated-carousel";
-import { Dimensions } from "react-native";
-import { Link } from "expo-router";
 import FeatureCard from "../../../components/FeatureCard";
+import agentsImg from "../../../images/agents.png";
+import buddiesImg from "../../../images/buddies.png";
+import cardsImg from "../../../images/cards.png";
+import currenciesImg from "../../../images/currencies.png";
 
 export default function Index() {
   const [agents, setAgents] = useState([]);
@@ -67,18 +70,25 @@ export default function Index() {
       </View>
       <View style={styles.features}>
         <FeatureCard
+          image={<Image source={agentsImg} />}
           title="Agents"
           content="Data and assets of all agents and their abilities"
         />
         <FeatureCard
+          image={<Image source={buddiesImg} />}
           title="Buddies"
           content="Data and assets of all gamemodes"
         />
         <FeatureCard
+          image={<Image source={cardsImg} />}
           title="Cards"
           content="Data and assets of all playable maps"
         />
-        <FeatureCard title="Currencies" content="Data of all seasons" />
+        <FeatureCard
+          image={<Image source={currenciesImg} />}
+          title="Currencies"
+          content="Data of all seasons"
+        />
       </View>
       <View style={styles.footer}>
         <Text style={{ color: "white" }}>

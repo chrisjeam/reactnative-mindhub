@@ -1,15 +1,9 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function FeatureCard({ title, content, image }) {
   return (
     <View style={styles.container}>
-      {image && (
-        <Image
-          source={"https://google.com"}
-          style={{ width: 200, height: 200 }}
-          resizeMode="contain"
-        />
-      )}
+      {image && image}
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.paragraph}>{content}</Text>
     </View>
@@ -23,7 +17,7 @@ const styles = StyleSheet.create({
     padding: 10,
     alignContent: "center",
     alignItems: "center",
-    height: 200,
+    height: 250,
     marginBottom: 20,
   },
   title: {
